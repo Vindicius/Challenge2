@@ -32,8 +32,6 @@ main h1{
 }
 .data{
 	width: 100%;
-	display: flex;
-    justify-content: center;
 }
 .innerData{
     padding: 30px;
