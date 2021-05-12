@@ -1,6 +1,5 @@
-var date = new Date();
-
 function displayDay() {
+	var date = new Date();
 	var day = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
 	var dayName = day[date.getDay()];
 	document.getElementById('showDay').innerHTML = dayName;
@@ -8,16 +7,21 @@ function displayDay() {
 displayDay();
 
 function displayTime(){
-// dit is de beste manier om de tijd te displayen maar ik kan helaas hieruit dan niet het uur apart aanspreken dus vandaar hieronder ook alsnog de oudere methode toegepast
-	var time = date.toLocaleTimeString(); 
-	document.getElementById('showTime').innerHTML = time;
+	var date = new Date();
+	//var time = date.toLocaleTimeString(); dit wilde ik gebruiken maar hiermee kon ik de 0 niet toevoegen als het cijfer onder de 10 was
 
-	var hour = date.getHours();
+	var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+	document.getElementById('showTime').innerHTML = h + ':' + m + ':' + s;
 
-	var morning = (hour >= 6 && hour < 12);
-	var afternoon = (hour >= 12 && hour < 18);
-	var evening = (hour >= 18 && hour < 24);
-	var night = (hour < 6);
+
+	var morning = (h >= 6 && h < 12);
+	var afternoon = (h >= 12 && h < 18);
+	var evening = (h >= 18 && h < 24);
+	var night = (h < 6);
 
 	var dayTimeVisual = document.getElementById('dayTimeVisual');
 	var cycle = document.getElementById('cycle');
@@ -44,13 +48,20 @@ function displayTime(){
 			dayTimeVisual.classList.remove('imgSwap');
 			break;
 	}
-	setTimeout(displayTime, 1000);// met deze timeout zou de klok zich horen te refreshen maar dit lijkt niet te gebeuren, code lijkt gewoon te kloppen.
 }
-
-displayTime();
+	displayTime();
+	setInterval(displayTime, 500);
 
 function displayDate(){
+	var date = new Date();
 	var showDate = date.toLocaleDateString();
 	document.getElementById('showDate').innerHTML = showDate;
 }
 displayDate();
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i
+    }; // Voegt 0 achter een cijfer 
+    return i;
+}
