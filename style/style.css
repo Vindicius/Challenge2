@@ -37,8 +37,16 @@ main h1{
     padding: 30px;
     background-color: #4f4f4f;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
 }
 /*Einde containers*/
+#tijdDatum{
+	display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
 
 @media only screen and (max-width: 959px) {
     
