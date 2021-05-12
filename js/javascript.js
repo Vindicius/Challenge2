@@ -44,7 +44,13 @@ function displayTime(){
 			dayTimeVisual.classList.remove('imgSwap');
 			break;
 	}
-
-	setTimeout(displayTime, 500);
+	setTimeout(displayTime, 1000);// met deze timeout zou de klok zich horen te refreshen maar dit lijkt niet te gebeuren, code lijkt gewoon te kloppen.
 }
+
 displayTime();
+
+function displayDate(){
+	var showDate = date.toLocaleDateString();
+	document.getElementById('showDate').innerHTML = showDate;
+}
+displayDate();

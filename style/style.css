@@ -41,11 +41,32 @@ main h1{
     justify-content: center;
 }
 /*Einde containers*/
+
 #tijdDatum{
 	display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+}
+
+#showTime{
+	font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+    padding: 15px 30px 15px 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: inset 0 2px 4px  rgba(0.7 ,0.7 ,0.7 , 0.7);
+    margin-bottom: 15px;
+}
+#showDate{
+	color: #fff;
+	font-size: 35px;
+	margin-bottom: 15px;
+}
+#showDay{
+	color: #fff;
+	font-size: 30px;
 }
 
 @media only screen and (max-width: 959px) {
