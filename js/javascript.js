@@ -8,39 +8,33 @@ displayDay();
 
 function displayTime(){
 	var date = new Date();
-	//var time = date.toLocaleTimeString(); dit wilde ik gebruiken maar hiermee kon ik de 0 niet toevoegen als het cijfer onder de 10 was
+	//var time = date.toLocaleTimeString(); dit wilde ik gebruiken maar hiermee kon ik de 0 niet toevoegen als het cijfer onder de 10 was, Dit had bijna alle variabelen hieronder onnodig gemaakt
 
-	var h = date.getHours();
+	var h = date.getHours(); //voorbeeld hiervan via w3schools omdat ik de tijd anders niet goed kreeg met een extra 0 
     var m = date.getMinutes();
     var s = date.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
 	document.getElementById('showTime').innerHTML = h + ':' + m + ':' + s;
 
-
-	var morning = (h >= 6 && h < 12);
-	var afternoon = (h >= 12 && h < 18);
-	var evening = (h >= 18 && h < 24);
-	var night = (h < 6);
-
 	var dayTimeVisual = document.getElementById('dayTimeVisual');
 	var cycle = document.getElementById('cycle');
 
 
 	switch(true){ //checkt de fase van de dag zoals die hierboven zijn gedefineerd en gebaseerd daarop zal een andere image worden weergegeven
-		case morning:
+		case h >= 6 && h < 12: //ochtend
 			dayTimeVisual.classList.add('imgSwap');
 			cycle.src = 'img/morning.png';
 			break;
-		case afternoon:
+		case h >= 12 && h < 18: //middag
 			dayTimeVisual.classList.add('imgSwap');
 			cycle.src = 'img/afternoon.png';
 			break;
-		case evening:
+		case h >= 18 && h < 24: //avond
 			dayTimeVisual.classList.add('imgSwap');
 			cycle.src = 'img/evening.png';
 			break;
-		case night:
+		case h < 6: //nacht
 			dayTimeVisual.classList.add('imgSwap');
 			cycle.src = 'img/night.png';
 			break;
@@ -50,7 +44,7 @@ function displayTime(){
 	}
 }
 	displayTime();
-	setInterval(displayTime, 500);
+	setInterval(displayTime, 1000);
 
 function displayDate(){
 	var date = new Date();
