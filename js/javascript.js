@@ -21,7 +21,7 @@ function displayTime(){
 	var cycle = document.getElementById('cycle');
 
 
-	switch(true){ //checkt de fase van de dag zoals die hierboven zijn gedefineerd en gebaseerd daarop zal een andere image worden weergegeven
+	switch(true){ //checkt de fase van de dag en gebaseerd daarop zal een andere image worden weergegeven
 		case h >= 6 && h < 12: //ochtend
 			dayTimeVisual.classList.add('imgSwap');
 			cycle.src = 'img/morning.png';
